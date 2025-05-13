@@ -1,5 +1,6 @@
 <?php
 // src/Bug.php
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity]
 #[ORM\Table(name: 'bugs')]
@@ -15,6 +16,12 @@ class Bug
     private DateTime $created;
     #[ORM\Column(type: 'string')]
     private string $status;
+    private ArrayCollection $products;
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
     public function getId(): int|null
     {
         return $this->id;
