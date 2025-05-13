@@ -50,4 +50,32 @@ class Bug
     {
         return $this->status;
     }
+    private User $engineer;
+    private User $reporter;
+    public function setEngineer(User $engineer): void
+    {
+        $engineer->assignedToBug($this);
+        $this->engineer = $engineer;
+    }
+    public function setReporter(User $reporter): void
+    {
+        $reporter->addReportedBug($this);
+        $this->reporter = $reporter;
+    }
+    public function getEngineer(): User
+    {
+        return $this->engineer;
+    }
+    public function getReporter(): User
+    {
+        return $this->reporter;
+    }
+    public function assignToProduct(Product $product): void
+    {
+        $this->products[] = $product;
+    }
+    public function getProducts()
+    {
+        return $this->products;
+    }
 }
