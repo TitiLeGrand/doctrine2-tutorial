@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: BugRepository::class)]
 #[ORM\Table(name: 'bugs')]
 class Bug
 {
