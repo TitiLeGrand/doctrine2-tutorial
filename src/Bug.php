@@ -39,6 +39,10 @@ class Bug
         $this->products = new ArrayCollection();
         $this->created = new DateTime();
     }
+    public function close()
+    {
+        $this->status = "CLOSE";
+    }
 
     public function getId(): ?int
     {
